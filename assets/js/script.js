@@ -3,7 +3,6 @@ var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var quizInstructions = document.querySelector(".quiz-instructions")
 var initialsForm = document.querySelector("form")
-var submitButton = document.querySelector("#submit")
 
 var isWin = false;
 var timer;
@@ -116,7 +115,6 @@ function checkAnswer(userChoice) {
     scoreElement.style.display = "block";
     scoreElement.textContent = `Final Score: ${score} of ${quizData.length}`;
     initialsForm.style.display = "block";
-
     // localStorage.setItem("score", score)
   }
 
@@ -124,5 +122,25 @@ questionElement.setAttribute("style", "font-size: 40px; color: purple");
 scoreElement.setAttribute("style", "font-size: 25px; color: blue");
 initialsForm.setAttribute("style", "font-size: 25px; color: blue");
 
+var submitButton = document.getElementById("submit")
+var initials = document.getElementById("initials");
+
+  submitButton.addEventListener('click', function () {
+    saveInitialsScore();
+  });
+
+  function saveInitialsScore() {
+    console.log(scoreElement.value)
+    var initialsScore = {
+      initials: initials.value.trim(),
+      score: score,
+    };
+
+    localStorage.setItem("initialsScore", JSON.stringify(initialsScore));
+  }
+
+  
+
+  
 
 
