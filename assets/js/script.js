@@ -17,27 +17,6 @@ function startGame() {
     showQuestion()
 }
 
-// function startTimer() {
-//     timer = setInterval(function() {
-//       timerCount--;
-//       timerElement.textContent = timerCount;
-//       if (timerCount >= 0) {
-//         // Tests if win condition is met
-//         if (isWin && timerCount > 0) {
-//           // Clears interval and stops timer
-//           clearInterval(timer);
-//           winGame();
-//         }
-//       }
-//       // Tests if time has run out
-//       if (timerCount === 0) {
-//         // Clears interval
-//         clearInterval(timer);
-//         loseGame();
-//       }
-//     }, 1000);
-// }
-
 function startTimer() {
   var timeInterval = setInterval(() => {
     if (timerCount < 0) {
@@ -98,29 +77,6 @@ const quizData = [
     });
   }
   
-//   function checkAnswer(userChoice) { 
-//     // console.log(userChoice)
-//     const currentQuestion = quizData[currentQuestionIndex];
-//     if (userChoice === currentQuestion.correctAnswer) {
-//       score++;
-//       resultElement.textContent = "Correct!";  
-//     }
-  
-//     if (userChoice != currentQuestion.correctAnswer) {
-//         // console.log("wrong")
-//         timerCount -=10;
-//         resultElement.textContent = "Wrong!"  
-//     }
-
-//     currentQuestionIndex++;
-  
-//     if (currentQuestionIndex < quizData.length) {
-//       showQuestion();
-//     } else {
-//       showFinalScore();
-//     }
-//   }
-
 function checkAnswer(userChoice) { 
     // console.log(userChoice)
     const currentQuestion = quizData[currentQuestionIndex];
@@ -148,34 +104,12 @@ function checkAnswer(userChoice) {
     }
   }
 
-  
   function showFinalScore() {
-    // if (isWin = true)
     questionElement.textContent = "GAME OVER!";
     choicesElement.innerHTML = "";
     startButton.style.display = "none";
+    scoreElement.style.display= "block";
     scoreElement.textContent = `Final Score: ${score} of ${quizData.length}`;
     localStorage.setItem("score", score)
   }
-
-
-
-
-
-//   function showFinalScore() {
-//     if (isWin === true) {
-//     questionElement.textContent = "You win!";
-//   } else {
-//     questionElement.textContent = "You suck!";
-//   }
-//     choicesElement.innerHTML = "";
-//     startButton.style.display = "none";
-//     scoreElement.textContent = `Final Score: ${score} of ${quizData.length}`;
-//     localStorage.setItem("score", score)
-//   }
-
- /* submitButton.addEventListener("click", showQuestion);*/
-  
-  
-//   startGame();*/
 

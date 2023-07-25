@@ -3,4 +3,11 @@ header {
    justify-content: space-between; 
 }
 
+main {
+   padding: 40px;
+   text-align: center;
+}
 
+#score {
+   display: none;
+}
