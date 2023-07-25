@@ -8,6 +8,8 @@ main {
    text-align: center;
 }
 
-#score {
+#score, form {
    display: none;
 }
+
+

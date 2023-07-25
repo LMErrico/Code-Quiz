@@ -1,6 +1,9 @@
 var viewHighscores = document.querySelector(".view-highscores");
 var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
+var quizInstructions = document.querySelector(".quiz-instructions")
+var initialsForm = document.querySelector("form")
+var submitButton = document.querySelector("#submit")
 
 var isWin = false;
 var timer;
@@ -38,12 +41,12 @@ const quizData = [
       correctAnswer: "3. alerts"
     },
     {
-      question: "The condition in an if / else statement is enclosed with ______",
+      question: "The condition in an if / else statement is enclosed with ______ .",
       choices: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"],
       correctAnswer: "3. parenthesis"
     },
     {
-      question: "Arrays in JavaScript can be used to store",
+      question: "Arrays in JavaScript can be used to store.",
       choices: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
       correctAnswer: "4. all of the above"
     },
@@ -65,10 +68,11 @@ const quizData = [
   const scoreElement = document.getElementById("score");
   
   function showQuestion() {
+    quizInstructions.style.display = "none";
     const currentQuestion = quizData[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
     choicesElement.innerHTML = "";
-  
+      
     currentQuestion.choices.forEach((choice) => {
       const choiceButton = document.createElement("button");
       choiceButton.textContent = choice;
@@ -106,10 +110,19 @@ function checkAnswer(userChoice) {
 
   function showFinalScore() {
     questionElement.textContent = "GAME OVER!";
-    choicesElement.innerHTML = "";
+    choicesElement.style.display = "none";
+    resultElement.style.display = "none";
     startButton.style.display = "none";
-    scoreElement.style.display= "block";
+    scoreElement.style.display = "block";
     scoreElement.textContent = `Final Score: ${score} of ${quizData.length}`;
-    localStorage.setItem("score", score)
+    initialsForm.style.display = "block";
+
+    // localStorage.setItem("score", score)
   }
+
+questionElement.setAttribute("style", "font-size: 40px; color: purple");
+scoreElement.setAttribute("style", "font-size: 25px; color: blue");
+initialsForm.setAttribute("style", "font-size: 25px; color: blue");
+
+
 
