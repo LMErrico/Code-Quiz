@@ -15,6 +15,7 @@ function startGame() {
     isWin = false;
     timerCount = 20;
     startButton.disabled = true;
+    lastScoreButton.disabled = true;
     startTimer()
     showQuestion()
 }
@@ -122,8 +123,10 @@ questionElement.setAttribute("style", "font-size: 40px; color: purple");
 scoreElement.setAttribute("style", "font-size: 25px; color: blue");
 initialsForm.setAttribute("style", "font-size: 25px; color: blue");
 
-var submitButton = document.getElementById("submit")
+var submitButton = document.getElementById("submit");
 var initials = document.getElementById("initials");
+var lastScoreButton = document.getElementById("last-score");
+var lastInitialsScore = document.getElementById("last-initials-score");
 
   submitButton.addEventListener('click', function () {
     saveInitialsScore();
@@ -139,8 +142,34 @@ var initials = document.getElementById("initials");
     localStorage.setItem("initialsScore", JSON.stringify(initialsScore));
   }
 
+  lastScoreButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    renderLastScore();
+  });
   
+  function renderLastScore() {
 
+    quizInstructions.style.display = "none";
+    lastScoreButton.disabled = true;
+
+    var initialsScore = {
+      initials: initials.value.trim(),
+      score: score
+    };
+ 
+    var initialsScore = JSON.parse(localStorage.getItem('initialsScore'));
+    console.log(initialsScore)
+
+    if (initialsScore !== null) {
+    var displayInitial = initialsScore.initials
+    var displayScore = initialsScore.score
+     
+      lastInitialsScore.innerHTML += "<p> " + 'Last\ score: ' + displayInitial + '--' + displayScore + " </p>";
+      
+    } else {
+      lastInitialsScore.innerHTML += "<p> " + 'NO SCORES SAVED YET ' + "</p>";
+    }
+  }
   
 
 
