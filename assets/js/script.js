@@ -3,6 +3,7 @@ var timerElement = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var quizInstructions = document.querySelector(".quiz-instructions")
 var initialsForm = document.querySelector("form")
+var resetButton = document.querySelector("#reset")
 
 var isWin = false;
 var timer;
@@ -116,12 +117,11 @@ function checkAnswer(userChoice) {
     scoreElement.style.display = "block";
     scoreElement.textContent = `Final Score: ${score} of ${quizData.length}`;
     initialsForm.style.display = "block";
-    // localStorage.setItem("score", score)
   }
 
-questionElement.setAttribute("style", "font-size: 40px; color: purple");
-scoreElement.setAttribute("style", "font-size: 25px; color: blue");
-initialsForm.setAttribute("style", "font-size: 25px; color: blue");
+questionElement.setAttribute("style", "font-size: 30px; color: purple");
+scoreElement.setAttribute("style", "font-size: 20px; color: purple");
+initialsForm.setAttribute("style", "font-size: 20px; color: purple");
 
 var submitButton = document.getElementById("submit");
 var initials = document.getElementById("initials");
@@ -151,7 +151,8 @@ var lastInitialsScore = document.getElementById("last-initials-score");
 
     quizInstructions.style.display = "none";
     lastScoreButton.disabled = true;
-
+    resetButton.style.display = "block";
+    
     var initialsScore = {
       initials: initials.value.trim(),
       score: score
@@ -170,6 +171,11 @@ var lastInitialsScore = document.getElementById("last-initials-score");
       lastInitialsScore.innerHTML += "<p> " + 'NO SCORES SAVED YET ' + "</p>";
     }
   }
+
+  lastInitialsScore.setAttribute("style", "font-size: 30px; color: purple");
   
+  resetButton.addEventListener("click", reStartGame);
 
-
+  function reStartGame() {
+    window.location.reload()
+  }
