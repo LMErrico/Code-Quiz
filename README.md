@@ -14,7 +14,7 @@ N/A
 
 ## Usage
 
-The URL to the page is 
+The URL to the page is https://lmerrico.github.io/Code-Quiz/
 
 Click on the "start" button to begin the game.
 
