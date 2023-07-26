@@ -15,6 +15,7 @@ N/A
 ## Usage
 
 The URL to the page is https://lmerrico.github.io/Code-Quiz/
+The code is located at https://github.com/LMErrico/Code-Quiz
 
 Click on the "start" button to begin the game.
 
@@ -35,4 +36,9 @@ The last score can be viewed and reset button clicked to restart the game.
 ## License
 
 Please refer to the LICENSE in the repository.
+
+## Note
+
+This project was created based on reviewing activities from the previous classes at bootcamp. Also, I had a tutoring session with Katie Redford who was very helpful in answering questions, but she didn't supply me with any code for this project.
+
 
